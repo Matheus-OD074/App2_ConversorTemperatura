@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double result;
         FahrenheitStrategy fs = new FahrenheitStrategy();
         result = fs.getConversion(getTemp());
-        showResult(result);
+        resultTextView.setText(String.format("%.2f °C", result));
     }
 
     private void getCelsiusConversion(){
         double result;
         CelsisusStrategy cs = new CelsisusStrategy();
         result = cs.getConversion(getTemp());
-        showResult(result);
+        resultTextView.setText(String.format("%.2f °F", result));
     }
 
     private double getTemp(){
@@ -69,9 +69,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return temp;
     }
-
-    private void showResult(double result){
-        resultTextView.setText(String.format("%.2f °C", result));
-    }
-
+    
 }
