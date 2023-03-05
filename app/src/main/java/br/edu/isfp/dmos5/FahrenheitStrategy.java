@@ -11,10 +11,8 @@ public class FahrenheitStrategy implements ConversorTemperatura {
     }
 
     @Override
-    public double getConversion(double temperature) {
-
-        temperature = (temperature - 32) * 5/9;
-
-        return temperature;
+    public double getConversion(double temperatura) {
+        temperatura = (temperatura - 32) * 5/9;
+        return temperatura;
     }
 }

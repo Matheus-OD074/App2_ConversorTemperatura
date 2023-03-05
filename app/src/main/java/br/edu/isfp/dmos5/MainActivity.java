@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText tempEditText;
     private TextView resultTextView;
     private Button buttonConverterCelsius;
+    private Button buttonConverterFahrenheit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         tempEditText = findViewById(R.id.editText_temperature);
         resultTextView = findViewById(R.id.textView_Result);
+
         buttonConverterCelsius = findViewById(R.id.buttonConverterCelsius);
         buttonConverterCelsius.setOnClickListener(this);
+
+        buttonConverterFahrenheit = findViewById(R.id.buttonConverterFahrenheit);
+        buttonConverterFahrenheit.setOnClickListener(this);
 
     }
 
@@ -32,11 +37,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == buttonConverterCelsius){
             getFahrenheitConversion();
         }
+        if(view == buttonConverterFahrenheit){
+            getCelsiusConversion();
+        }
     }
     private void getFahrenheitConversion(){
         double result;
         FahrenheitStrategy fs = new FahrenheitStrategy();
         result = fs.getConversion(getTemp());
+        showResult(result);
+    }
+
+    private void getCelsiusConversion(){
+        double result;
+        CelsisusStrategy cs = new CelsisusStrategy();
+        result = cs.getConversion(getTemp());
         showResult(result);
     }
 
